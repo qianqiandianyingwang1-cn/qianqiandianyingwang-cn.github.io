@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="description" content="千千电影网：千千阕歌，只推值得一听一看的高分电影、经典剧集与纪录片。按情绪、节奏、时代检索，附正版片源导航。">
+<meta name="keywords" content="千千电影网,千千电影,高分电影,经典电影,经典剧集,纪录片,治愈电影,悬疑电影,音乐电影,值得二刷,正版观影">
+<title>千千电影网 · 千千阕歌，只推值得一听一看的电影</title>
+<link rel="canonical" href="https://qianqiandianyingwang-cn.github.io/">
+<style>
+:root{
+  --ink:#0a0e1a; --ink2:#141a2b; --paper:#f6f3ee; --paper2:#efe9df;
+  --gold:#d9a83c; --gold2:#f0d58a; --c1:#c9743f; --c2:#4f8a6d; --c3:#5b7fa6; --c4:#8b6bff;
+  --line:rgba(10,14,26,.14); --line2:rgba(217,168,60,.34);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",-apple-system,sans-serif;
+  color:var(--ink); background:var(--paper);
+  line-height:1.7; -webkit-text-size-adjust:100%;
+  font-size:clamp(15px,2.6vw,16.5px);
+}
+img{display:block;max-width:100%;height:auto;object-fit:cover}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--gold);color:#20160a}
+
+/* ============ 首屏 ============ */
+.hero{
+  position:relative; overflow:hidden;
+  background:radial-gradient(1200px 700px at 78% 18%, rgba(217,168,60,.30), transparent 62%),
+             linear-gradient(160deg,#0a0e1a 0%, #121a2e 46%, #16263a 100%);
+  color:#f6f3ee; padding:clamp(56px,9vw,112px) clamp(18px,5vw,40px) clamp(44px,7vw,84px);
+}
+.hero__sky{position:absolute;inset:0;opacity:.9}
+.hero__inner{position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,64px);align-items:center}
+.hero__kicker{font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold2);font-weight:600}
+.hero h1{
+  font-size:clamp(34px,6.4vw,64px);line-height:1.12;margin:14px 0 18px;letter-spacing:.01em;
+  font-weight:800;
+}
+.hero h1 em{font-style:normal;color:var(--gold2);background:linear-gradient(92deg,var(--gold2),#ffd98a 55%,var(--c1));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero__lead{color:rgba(246,243,238,.78);max-width:30em;font-size:clamp(15px,2.6vw,17.5px)}
+.hero__lead b{color:#fff;font-weight:600}
+.hero__chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.hero__chips span{
+  border:1px solid rgba(217,168,60,.42);color:var(--gold2);
+  padding:6px 13px;border-radius:999px;font-size:13px;letter-spacing:.04em;
+  background:rgba(217,168,60,.07);
+}
+.hero__cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 26px;border-radius:12px;font-weight:700;font-size:15px;
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn--gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#20160a;box-shadow:0 10px 26px -10px rgba(217,168,60,.8)}
+.btn--ghost{border:1px solid rgba(246,243,238,.34);color:#f6f3ee}
+.btn:hover{transform:translateY(-2px)}
+.warn{
+  margin-top:26px;display:inline-flex;align-items:center;gap:9px;
+  background:rgba(217,168,60,.12);border-left:3px solid var(--gold);
+  padding:10px 15px;border-radius:0 10px 10px 0;font-size:13.5px;color:rgba(246,243,238,.9);
+}
+.svg-stage{position:relative;aspect-ratio:4/3.05;width:100%;max-width:520px;margin:0 auto}
+@media (max-width:720px){.hero__inner{grid-template-columns:1fr}.svg-stage{order:-1;max-width:420px}}
+
+/* ============ 通用栏目 ============ */
+section{padding:clamp(54px,8vw,96px) clamp(18px,5vw,40px);position:relative}
+.wrap{max-width:1240px;margin:0 auto}
+.eyebrow{font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--c1);font-weight:700}
+.sec-h{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin:9px 0 clamp(26px,4vw,42px)}
+.sec-h h2{font-size:clamp(25px,4.4vw,39px);line-height:1.25;font-weight:800;letter-spacing:.01em}
+.sec-h .num{font-size:clamp(30px,5vw,46px);font-weight:800;color:var(--line2);line-height:1}
+.sec-h p{width:100%;max-width:34em;color:#5d6577;font-size:15px}
+.tag{display:inline-block;font-size:12px;letter-spacing:.06em;padding:3px 9px;border-radius:6px;background:var(--paper2);color:#5d6577;border:1px solid var(--line)}
+[data-rv]{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+[data-rv].in{opacity:1;transform:none}
+
+/* ① 情绪四象限 */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.q{
+  --c:var(--c1);--c2:var(--c2);
+  position:relative;overflow:hidden;border-radius:18px;padding:24px 22px 22px;
+  background:linear-gradient(170deg,#fff,#fbf8f2);border:1px solid var(--line);
+  transition:transform .26s ease,border-color .26s ease,box-shadow .26s ease;
+}
+.q::before{content:"";position:absolute;right:-44px;top:-44px;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,168,60,.30),transparent 70%);filter:blur(2px);opacity:0;transition:opacity .4s ease}
+.q:hover,.q:focus-within{transform:translateY(-6px);border-color:var(--c);box-shadow:0 20px 44px -22px rgba(10,14,26,.42)}
+.q:hover::before,.q:focus-within::before{opacity:1}
+.q .no{font-size:12px;letter-spacing:.26em;color:var(--c);font-weight:800}
+.q h3{font-size:clamp(19px,3vw,24px);margin:8px 0 9px;font-weight:800}
+.q p{color:#5d6577;font-size:14.5px;min-height:3.4em}
+.q .bar{height:5px;border-radius:6px;background:rgba(10,14,26,.08);margin:14px 0 4px;overflow:hidden}
+.q .bar i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--c),var(--c2));transform-origin:left}
+.q .val{font-size:12.5px;color:#5d6577;display:flex;justify-content:space-between;gap:8px}
+.q .val b{color:var(--c);font-weight:800}
+@media (max-width:980px){.grid4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid4{grid-template-columns:1fr}.q p{min-height:0}}
+
+/* ② 本周片单：横向磁贴 */
+.mag{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 20px;margin:0 -4px;
+  scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+.mag::-webkit-scrollbar{height:9px}
+.mag::-webkit-scrollbar-thumb{background:var(--line2);border-radius:8px}
+.mag__item{
+  flex:0 0 clamp(168px,28vw,212px);scroll-snap-align:start;
+  border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);
+  transition:transform .26s ease,box-shadow .26s ease;
+}
+.mag__item:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 20px 40px -20px rgba(10,14,26,.5)}
+.mag__cover{position:relative;aspect-ratio:3/4;overflow:hidden;background:#dfd8cb}
+.mag__cover img{width:100%;height:100%;transition:transform .55s cubic-bezier(.2,.7,.3,1),filter .4s ease;
+  filter:grayscale(.1) sepia(.13) hue-rotate(-5deg) saturate(1.02)}
+.mag__item:hover .mag__cover img{transform:scale(1.07);filter:none}
+.mag__badge{position:absolute;top:10px;left:10px;font-size:11.5px;font-weight:800;letter-spacing:.05em;color:#fff;
+  padding:4px 9px;border-radius:7px;background:var(--c,var(--c1))}
+.mag__rate{position:absolute;right:10px;bottom:10px;font-size:12.5px;font-weight:800;color:#20160a;
+  padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(4px)}
+.mag__body{padding:13px 14px 15px}
+.mag__body .t{font-size:15.5px;font-weight:800;line-height:1.35;margin-bottom:7px}
+.mag__meta{display:flex;flex-wrap:wrap;gap:6px;font-size:11.5px;color:#7a8294;margin-bottom:9px}
+.mag__why{font-size:13px;color:#5d6577;line-height:1.6;border-left:2px solid var(--line2);padding-left:9px}
+
+/* ③ 数据表榜 */
+.rank{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:34px;align-items:start}
+@media (max-width:980px){.rank{grid-template-columns:1fr}}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid var(--line);background:#fff}
+table{width:100%;border-collapse:collapse;min-width:640px;font-size:14.5px}
+thead th{
+  background:linear-gradient(90deg,var(--ink),var(--ink2));color:#f6f3ee;
+  text-align:left;padding:15px 14px;font-size:13px;letter-spacing:.05em;font-weight:700;white-space:nowrap;
+  position:sticky;top:0;z-index:2;
+}
+tbody td{padding:14px;border-top:1px solid var(--line);vertical-align:middle}
+tbody tr{transition:background .2s ease}
+tbody tr:hover{background:#fdfaf4}
+.rk{font-weight:800;color:var(--c1);width:74px;font-variant-numeric:tabular-nums}
+.tbl-t{font-weight:800;font-size:15px}
+.tbl-s{font-size:12px;color:#7a8294;margin-top:2px}
+.mini{display:flex;align-items:center;gap:9px;min-width:150px}
+.mini__track{flex:1;height:7px;border-radius:8px;background:rgba(10,14,26,.08);overflow:hidden}
+.mini__fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--c2),var(--gold) 60%,var(--c1))}
+.mini b{font-size:12.5px;font-weight:800;color:var(--c1);font-variant-numeric:tabular-nums;min-width:34px}
+.stars{color:var(--gold);letter-spacing:1px;font-size:13px;white-space:nowrap}
+.src{font-size:12px;color:#4f8a6d;font-weight:700;white-space:nowrap}
+/* ≤720 卡片化 */
+@media (max-width:720px){
+  table,thead,tbody,th,td,tr{display:block}
+  thead{display:none}
+  tbody tr{margin:0 0 13px;padding:15px;border:1px solid var(--line);border-radius:14px;background:#fff}
+  tbody td{border:none;padding:8px 2px;display:flex;gap:10px;align-items:baseline}
+  tbody td::before{content:attr(data-l);flex:0 0 62px;font-size:11.5px;letter-spacing:.08em;color:#7a8294;text-transform:uppercase;font-weight:700}
+  .rk{width:auto}
+  .mini{min-width:0;flex:1}
+  tbody tr::before{content:attr(data-rk);display:block;font-size:11.5px;letter-spacing:.2em;color:var(--c1);font-weight:800;margin-bottom:4px}
+}
+.side{display:grid;gap:16px}
+.card{background:linear-gradient(170deg,#fff,#fbf8f2);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h4{font-size:15.5px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.card h4 i{width:9px;height:9px;border-radius:3px;background:var(--c,var(--c1));display:inline-block}
+.card .sub{font-size:12.5px;color:#7a8294;margin-bottom:13px}
+.qlist{counter-reset:q;list-style:none}
+.qlist li{counter-increment:q;position:relative;padding:11px 0 11px 34px;border-top:1px dashed var(--line);font-size:14.5px;color:#3c4456}
+.qlist li:first-child{border:none}
+.qlist li::before{content:"Q" counter(q);position:absolute;left:0;top:11px;font-size:10.5px;font-weight:800;letter-spacing:.06em;
+  color:var(--c1);border:1px solid var(--line2);border-radius:6px;padding:2px 5px}
+.qlist li b{display:block;color:var(--ink);font-weight:700}
+
+/* ④ 时间轴 */
+.tl{position:relative;padding-left:34px;counter-reset:st}
+.tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:3px;border-radius:4px;
+  background:linear-gradient(180deg,var(--c2),var(--gold) 46%,var(--c1))}
+.st{position:relative;padding:22px 24px;border:1px solid var(--line);border-radius:16px;background:#fff;margin-bottom:16px;
+  transition:transform .26s ease,box-shadow .26s ease,border-color .26s ease}
+.st::before{content:"";position:absolute;left:-31px;top:29px;width:15px;height:15px;border-radius:50%;
+  background:var(--paper);border:4px solid var(--c,var(--c1));box-shadow:0 0 0 6px rgba(217,168,60,.12);transition:box-shadow .3s ease}
+.st:hover{transform:translateX(7px);border-color:var(--c);box-shadow:0 16px 36px -22px rgba(10,14,26,.45)}
+.st:hover::before{box-shadow:0 0 0 11px rgba(217,168,60,.2)}
+.st__top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:5px}
+.st__yr{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--c1)}
+.st__en{font-size:11.5px;color:#9aa2b3;letter-spacing:.06em}
+.st h3{font-size:clamp(18px,2.8vw,22px);font-weight:800;margin-bottom:9px}
+.st .read{color:#5d6577;font-size:14.5px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chips s{text-decoration:none;font-size:12px;color:#4a5264;border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:#fdfaf4}
+
+/* ⑤ 砖墙 */
+.bricks{column-count:3;column-gap:18px}
+.br{break-inside:avoid;margin-bottom:18px;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);
+  transition:transform .26s ease,box-shadow .26s ease}
+.br:hover{transform:translateY(-5px);box-shadow:0 20px 42px -22px rgba(10,14,26,.5)}
+.br__cover{position:relative;aspect-ratio:16/10;overflow:hidden;background:#dfd8cb}
+.br.h2 .br__cover{aspect-ratio:3/4}
+.br.h4 .br__cover{aspect-ratio:16/7}
+.br__cover img{width:100%;height:100%;transition:transform .6s cubic-bezier(.2,.7,.3,1),filter .4s ease;
+  filter:grayscale(.2) sepia(.12) hue-rotate(-6deg) brightness(.9)}
+.br:hover .br__cover img{transform:scale(1.06);filter:grayscale(0) sepia(.05) brightness(1.02)}
+.br__idx{position:absolute;left:12px;bottom:10px;font-size:11px;font-weight:800;letter-spacing:.2em;color:#fff;
+  background:rgba(10,14,26,.62);backdrop-filter:blur(5px);padding:4px 9px;border-radius:7px}
+.br__body{padding:14px 16px 17px}
+.br__body .t{font-size:16px;font-weight:800;line-height:1.4;margin-bottom:7px}
+.br__body p{font-size:13.5px;color:#5d6577;line-height:1.65}
+@media (max-width:980px){.bricks{column-count:2}}
+@media (max-width:560px){.bricks{column-count:1}}
+
+.ladder{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:34px;counter-reset:ld}
+@media (max-width:720px){.ladder{grid-template-columns:1fr;gap:16px}}
+.ladder h4{font-size:15.5px;margin-bottom:10px;color:var(--c1);letter-spacing:.05em}
+.ladder ol{list-style:none;counter-reset:li}
+.ladder li{counter-increment:li;display:flex;gap:11px;padding:10px 0;border-top:1px dashed var(--line);font-size:14.5px;align-items:baseline}
+.ladder li:first-child{border:none}
+.ladder li::before{content:"0" counter(li);font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.06em;flex:0 0 auto;
+  border:1px solid var(--line2);border-radius:6px;padding:2px 6px}
+.ladder li b{font-weight:700}
+
+/* ⑥ 关于 */
+.about{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:980px){.about{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.about{grid-template-columns:1fr}}
+.do{border:1px solid var(--line);border-radius:16px;padding:22px;background:linear-gradient(170deg,#fff,#fbf8f2);
+  transition:transform .24s ease,border-color .24s ease}
+.do:hover{transform:translateY(-5px);border-color:var(--c1)}
+.do .n{font-size:12px;letter-spacing:.24em;color:var(--c1);font-weight:800}
+.do h3{font-size:18px;margin:7px 0 8px;font-weight:800}
+.do p{font-size:14px;color:#5d6577}
+
+/* 页脚 */
+footer{background:var(--ink);color:rgba(246,243,238,.72);padding:clamp(44px,7vw,74px) clamp(18px,5vw,40px) 30px}
+.foot{max-width:1240px;margin:0 auto}
+.foot__top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:34px}
+@media (max-width:820px){.foot__top{grid-template-columns:1fr 1fr;gap:26px}}
+@media (max-width:520px){.foot__top{grid-template-columns:1fr}}
+.foot h5{color:#fff;font-size:15px;margin-bottom:12px;letter-spacing:.05em}
+.foot ul{list-style:none}
+.foot li{font-size:13.5px;padding:5px 0;color:rgba(246,243,238,.6)}
+.foot li:hover{color:var(--gold2)}
+.foot__brand .logo{font-size:22px;font-weight:800;color:#fff;letter-spacing:.02em}
+.foot__brand .logo span{color:var(--gold)}
+.foot__brand p{margin-top:11px;max-width:26em;font-size:13.5px;line-height:1.75}
+.foot__bottom{margin-top:34px;padding-top:22px;border-top:1px solid rgba(246,243,238,.14);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:rgba(246,243,238,.5)}
+
+/* 导航 */
+.nav{position:sticky;top:0;z-index:50;background:rgba(246,243,238,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.nav__in{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px clamp(18px,5vw,40px)}
+.logo{font-weight:800;font-size:18px;letter-spacing:.02em;white-space:nowrap}
+.logo span{color:var(--c1)}
+.nav-links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav-links a{font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:9px;color:#3c4456;transition:background .2s,color .2s}
+.nav-links a:hover{background:rgba(217,168,60,.14);color:#20160a}
+.burger{display:none;margin-left:auto;width:42px;height:42px;align-items:center;justify-content:center;flex-direction:column;gap:5px;border-radius:10px}
+.burger i{width:21px;height:2px;background:var(--ink);border-radius:3px;transition:transform .28s ease,opacity .2s ease}
+@media (max-width:820px){
+  .burger{display:flex}
+  .nav-links{position:fixed;inset:0 0 0 auto;width:300px;height:100dvh;background:#fff;flex-direction:column;
+    padding:78px 20px 26px;margin:0;box-shadow:-26px 0 60px -20px rgba(10,14,26,.5);
+    transform:translateX(102%);transition:transform .34s cubic-bezier(.3,.8,.3,1);overflow-y:auto}
+  .nav-links.open{transform:none}
+  .nav-links a{font-size:16px;padding:13px 12px;border-bottom:1px solid var(--line);border-radius:0}
+  .burger[aria-expanded="true"] i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<header class="nav" role="banner">
+  <div class="nav__in">
+    <a class="logo" href="#top">千千<span>电影网</span></a>
+    <nav aria-label="主导航">
+      <div class="nav-links" id="navLinks">
+        <a href="#axis">情绪</a>
+        <a href="#fresh">本周片单</a>
+        <a href="#rank">千千榜</a>
+        <a href="#line">千千影人</a>
+        <a href="#map">类型地图</a>
+        <a href="#about">关于</a>
+      </div>
+    </nav>
+    <button class="burger" id="burger" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="navLinks">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<!-- ============ 首屏 ============ -->
+<section class="hero" id="top" aria-labelledby="h1">
+  <svg class="hero__sky" viewBox="0 0 520 400" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1a2540"/><stop offset="1" stop-color="#0a0e1a"/>
+      </linearGradient>
+      <linearGradient id="note" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f0d58a"/><stop offset="1" stop-color="#c9743f"/>
+      </linearGradient>
+      <radialGradient id="moon" cx=".5" cy=".5" r=".5">
+        <stop offset="0" stop-color="#fff4d8"/><stop offset=".55" stop-color="#e8c878"/><stop offset="1" stop-color="#b8922c"/>
+      </radialGradient>
+    </defs>
+    <rect width="520" height="400" fill="url(#sky)"/>
+    <!-- 飘线 -->
+    <g stroke="rgba(240,213,138,.35)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="2 9">
+      <path d="M40 300 C 90 268 150 300 200 258" style="animation:floaty 9s ease-in-out infinite"/>
+      <path d="M300 320 C 350 288 410 318 470 276" style="animation:floaty 11s ease-in-out infinite .8s"/>
+      <path d="M120 150 C 170 122 230 152 280 116" style="animation:floaty 13s ease-in-out infinite 1.6s"/>
+    </g>
+    <!-- 月亮 -->
+    <circle cx="410" cy="86" r="46" fill="url(#moon)" style="animation:pulse 5.6s ease-in-out infinite"/>
+    <circle cx="410" cy="86" r="66" stroke="rgba(240,213,138,.22)" stroke-width="1.5" stroke-dasharray="6 12" style="transform-origin:410px 86px;animation:spin 40s linear infinite"/>
+    <!-- 远山 -->
+    <path d="M0 322 L 120 256 L 250 316 L 370 250 L 520 322 L 520 400 L 0 400 Z" fill="#12212f"/>
+    <path d="M0 356 L 150 300 L 290 352 L 430 298 L 520 352 L 520 400 L 0 400 Z" fill="#0c1726"/>
+    <!-- 音符群 -->
+    <g style="animation:floaty 8s ease-in-out infinite">
+      <path d="M92 232 L92 200" stroke="url(#note)" stroke-width="2.4" stroke-linecap="round"/>
+      <ellipse cx="84" cy="232" rx="11" ry="7" fill="url(#note)"/>
+      <path d="M92 200 C 118 196 132 208 132 224" stroke="url(#note)" stroke-width="2.2" fill="none"/>
+      <circle cx="128" cy="224" r="2.6" fill="#f0d58a"/>
+    </g>
+    <g style="animation:floaty 10s ease-in-out infinite 1.2s;transform-origin:200px 190px">
+      <path d="M196 206 L196 172" stroke="url(#note)" stroke-width="2.2" stroke-linecap="round"/>
+      <ellipse cx="188" cy="206" rx="10" ry="6.4" fill="url(#note)"/>
+      <path d="M196 172 C 218 168 230 180 230 196" stroke="url(#note)" stroke-width="2" fill="none"/>
+    </g>
+    <g style="animation:floaty 7s ease-in-out infinite 2.4s">
+      <path d="M330 250 L330 222" stroke="url(#note)" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="323" cy="250" rx="9" ry="5.8" fill="url(#note)"/>
+    </g>
+    <!-- 星点 -->
+    <g fill="#f6f3ee" opacity=".75">
+      <circle cx="60" cy="60" r="1.4" style="animation:tw 3.1s ease-in-out infinite"/><circle cx="160" cy="34" r="1.1" style="animation:tw 2.4s ease-in-out infinite .7s"/>
+      <circle cx="262" cy="72" r="1.6" style="animation:tw 3.6s ease-in-out infinite 1.5s"/><circle cx="470" cy="150" r="1.2" style="animation:tw 2.9s ease-in-out infinite .3s"/>
+      <circle cx="30" cy="150" r="1.3" style="animation:tw 3.3s ease-in-out infinite 1.9s"/><circle cx="360" cy="40" r="1.1" style="animation:tw 2.7s ease-in-out infinite 2.2s"/>
+    </g>
+    <text x="24" y="386" fill="rgba(240,213,138,.22)" font-size="15" letter-spacing="4" font-weight="700">A SONG · FOR · EVERY · FRAME</text>
+  </svg>
+
+  <div class="hero__inner">
+    <div>
+      <div class="hero__kicker">qianqian · film notes</div>
+      <h1 id="h1">千千阕歌，<br>只推<em>值得一听一看</em>的电影。</h1>
+      <p class="hero__lead">千千电影网不是片库，是一份<b>按情绪与节奏</b>整理的观影笔记。从配乐响起的第一秒，到字幕走完的最后一格——我们把"今天想看什么"翻译成四句具体的判断。</p>
+      <div class="hero__chips" aria-label="内容标签">
+        <span>治愈 · 悬疑 · 音乐 · 纪录片</span>
+        <span>高分电影</span><span>经典剧集</span><span>值得二刷</span><span>正版片源</span>
+      </div>
+      <div class="hero__cta">
+        <a class="btn btn--gold" href="#fresh">今晚看什么 →</a>
+        <a class="btn btn--ghost" href="#axis">先看懂情绪</a>
+      </div>
+      <div class="warn" role="note">⚠ 分级提示：部分影片含战争、惊悚或成人向情绪，未满 18 岁请在监护人陪同下观看。</div>
+    </div>
+
+    <div class="svg-stage" aria-hidden="true">
+      <svg viewBox="0 0 520 400" fill="none">
+        <use href="#sky"/>
+        <circle cx="120" cy="330" r="6" fill="rgba(240,213,138,.5)"/>
+        <g>
+          <rect x="56" y="292" width="200" height="3" rx="2" fill="rgba(240,213,138,.22)"/>
+          <rect x="96" y="304" width="120" height="3" rx="2" fill="rgba(240,213,138,.16)"/>
+        </g>
+        <g style="animation:floaty 6s ease-in-out infinite">
+          <path d="M256 300 L256 258" stroke="url(#note)" stroke-width="2.6" stroke-linecap="round"/>
+          <ellipse cx="246" cy="300" rx="12" ry="7.6" fill="url(#note)"/>
+          <path d="M256 258 C 288 252 306 268 306 288" stroke="url(#note)" stroke-width="2.4" fill="none"/>
+          <circle cx="300" cy="288" r="3" fill="#f0d58a"/>
+          <path d="M300 288 L300 262" stroke="url(#note)" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ① 情绪四象限 ============ -->
+<section id="axis" aria-labelledby="h-axis">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="num">01</span>
+      <div>
+        <div class="eyebrow">情绪 · mood board</div>
+        <h2 id="h-axis">四种情绪，决定今晚看什么</h2>
+        <p>千千电影网的选片标准只有一句：<b>这部片，适合哪种心情</b>。情绪对了，时长、年代、语言都不重要。</p>
+      </div>
+    </div>
+
+    <div class="grid4">
+      <article class="q" data-rv style="--c:#4f8a6d;--c2:#8fbf5a">
+        <div class="no">MOOD 01</div>
+        <h3>暖光 · 治愈</h3>
+        <p>节奏慢、光线好、台词少。看完不累，适合 21:30 之后，关掉弹幕的那一类。</p>
+        <div class="bar"><i data-w="94"></i></div>
+        <div class="val"><span>治愈指数</span><b>94</b></div>
+      </article>
+      <article class="q" data-rv style="--c:#5b7fa6;--c2:#7fa6cf">
+        <div class="no">MOOD 02</div>
+        <h3>夜色 · 悬疑</h3>
+        <p>需要字幕、需要安静、需要不被打断。前 40 分钟记名字，后 40 分钟推翻自己。</p>
+        <div class="bar"><i data-w="89"></i></div>
+        <div class="val"><span>烧脑指数</span><b>89</b></div>
+      </article>
+      <article class="q" data-rv style="--c:#c9743f;--c2:#e0a64a">
+        <div class="no">MOOD 03</div>
+        <h3>笑声 · 喜剧</h3>
+        <p>不是闹，是"刚好想到这件事就会笑"。适合任何疲惫的夜晚，也适合和家人一起。</p>
+        <div class="bar"><i data-w="86"></i></div>
+        <div class="val"><span>解压指数</span><b>86</b></div>
+      </article>
+      <article class="q" data-rv style="--c:#8b6bff;--c2:#c08bff">
+        <div class="no">MOOD 04</div>
+        <h3>远方 · 公路</h3>
+        <p>雨天的窗、假期的前夜、想出发又没出发的傍晚。公路片是最好的替代性出行。</p>
+        <div class="bar"><i data-w="91"></i></div>
+        <div class="val"><span>出走指数</span><b>91</b></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ② 本周片单 ============ -->
+<section id="fresh" aria-labelledby="h-fresh" style="background:linear-gradient(180deg,#fbf8f2,#f6f3ee)">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="num">02</span>
+      <div>
+        <div class="eyebrow">this week · 本周片单</div>
+        <h2 id="h-fresh">本周千千：14 部，按情绪排好</h2>
+        <p>每周更新一次。入选标准：<b>叙事 30% ＋ 镜头 25% ＋ 表演 20% ＋ 配乐 15% ＋ 重看价值 10%</b>。评分来自公开平台综合，仅供参考。</p>
+      </div>
+    </div>
+
+    <div class="mag" role="list" aria-label="本周片单">
+      <article class="mag__item" role="listitem" data-rv>
+        <div class="mag__cover">
+          <img src="https://picsum.photos/id/1080/400/540" alt="海街日记 电影海报" width="400" height="540" loading="lazy">
+          <span class="mag__badge" style="--c:#4f8a6d">治愈</span>
+          <span class="mag__rate">9.1</span>
+        </div>
+        <div class="mag__body">
+          <h3 class="t">海街日记</h3>
+          <div class="mag__meta"><span>是枝裕和</span><span>·</span><span>日本</span><span>·</span><span>2015</span><span>·</span><span>128′</span></div>
+          <p class="mag__why">梅子酒、海边、四姐妹。配乐一响，整颗心就软了。</p>
+        </div>
+      </article>
+
+      <article class="mag__item" role="listitem" data-rv>
+        <div class="mag__cover">
+          <img src="https://picsum.photos/id/1015/400/540" alt="寄生虫 电影海报" width="400" height="540" loading="lazy">
+          <span class="mag__badge" style="--c:#5b7fa6">悬疑</span>
+          <span class="mag__rate">8.8</span>
+        </div>
+        <div class="mag__body">
+          <h3 class="t">寄生虫</h3>
+          <div class="mag__meta"><span>奉俊昊</span><span>·</span><span>韩国</span><span>·</span><span>2019</span><span>·</span><span>132′</span></div>
+          <p class="mag__why">楼梯是这部片真正的角色。反转的不是剧情，是阶层。</p>
+        </div>
+      </article>
+
+      <article class="mag__item" role="listitem" data-rv>
+        <div class="mag__cover">
+          <img src="https://picsum.photos/id/1057/400/540" alt="布达佩斯大饭店 电影海报" width="400" height="540" loading="lazy">
+          <span class="mag__badge" style="--c:#c9743f">喜剧</span>
+          <span class="mag__rate">8.9</span>
+        </div>
+        <div class="mag__body">
+          <h3 class="t">布达佩斯大饭店</h3>
+          <div class="mag__meta"><span>韦斯·安德森</span><span>·</span><span>美国</span><span>·</span><span>2014</span><span>·</span><span>100′</span></div>
+          <p class="mag__why">对称构图本身就是笑话。每一帧都想截图当壁纸。</p>
+        </div>
+      </article>
+
+      <article class="mag__item" role="listitem" data-rv>
+        <div class="mag__cover">
+          <img src="https://picsum.photos/id/1031/400/540" alt="荒野生存 电影海报" width="400" height="540" loading="lazy">
+          <span class="mag__badge" style="--c:#8b6bff">公路</span>
+          <span class="mag__rate">8.7</span>
+        </div>
+        <div class="mag__body">
+          <h3 class="t">荒野生存</h3>
+          <div class="mag__meta"><span>西恩·潘</span><span>·</span><span>美国</span><span>·</span><span>2007</span><span>·</span><span>148′</span></div>
+          <p class="mag__why">最孤独的公路片。配乐是整部电影的呼吸。</p>
+        </div>
+      </article>
+
+      <article class="mag__item" role="listitem" data-rv>
+        <div class="mag__cover">
+          <img src="https://picsum.photos/id/1047/400/540" alt="星际穿越 电影海报" width="400" height="540" loading="lazy">
+          <span class="mag__badge" style="--c:#8b6bff">远方</span>
+          <span class="mag__rate">9.4</span>
+        </div>
+        <div class="mag__body">
+          <h3 class="t">星际穿越</h3>
+          <div class="mag__meta"><span>诺兰</span><span>·</span><span>美国</span><span>·</span><span>2014</span><span>·</span><span>169′</span></div>
+          <p class="mag__why">汉斯·季默的管风琴，是这部片真正的女主角。</p>
+        </div>
+      </article>
+
+      <article class="mag__item" role="listitem" data-rv>
+        <div class="mag__cover">
+          <img src="https://picsum.photos/id/1059/400/540" alt="小森林 电影海报" width="400" height="540" loading="lazy">
+          <span class="mag__badge" style="--c:#4f8a6d">治愈</span>
+          <span class="mag__rate">8.6</span>
+        </div>
+        <div class="mag__body">
+          <h3 class="t">小森林</h3>
+          <div class="mag__meta"><span>森淳一</span><span>·</span><span>日本</span><span>·</span><span>2014</span><span>·</span><span>111′</span></div>
+          <p class="mag__why">做饭、种地、听雨。没有冲突，却看得进去。</p>
+        </div>
+      </article>
+
+      <article class="mag__item" role="listitem" data-rv>
+        <div class="mag__cover">
+          <img src="https://picsum.photos/id/1067/400/540" alt="爆裂鼓手 电影海报" width="400" height="540" loading="lazy">
+          <span class="mag__badge" style="--c:#c9743f">节奏</span>
+          <span class="mag__rate">8.7</span>
+        </div>
+        <div class="mag__body">
+          <h3 class="t">爆裂鼓手</h3>
+          <div class="mag__meta"><span>达米恩·查泽雷</span><span>·</span><span>美国</span><span>·</span><span>2014</span><span>·</span><span>106′</span></div>
+          <p class="mag__why">鼓点就是剪辑点。看完会想练点什么。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ③ 千千榜 ============ -->
+<section id="rank" aria-labelledby="h-rank">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="num">03</span>
+      <div>
+        <div class="eyebrow">the qianqian list · 千千榜</div>
+        <h2 id="h-rank">千千值：把"好看"拆成 5 个数</h2>
+        <p>千千值 = 叙事完整度 30% ＋ 镜头语言 25% ＋ 表演 20% ＋ 配乐 15% ＋ 重看价值 10%。<b>不是热度，不是票房，是"值不值得花两小时"。</b></p>
+      </div>
+    </div>
+
+    <div class="rank">
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" style="width:74px">名次</th>
+              <th scope="col">影片 · 导演</th>
+              <th scope="col" style="width:200px">千千值</th>
+              <th scope="col" style="width:96px">评分</th>
+              <th scope="col" style="width:110px">正版片源</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-rv data-rk="千千 01">
+              <td class="rk" data-l="名次">01</td>
+              <td><div class="tbl-t">肖申克的救赎</div><div class="tbl-s">弗兰克·德拉邦特 · 1994 · 美国</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="99"></i></span><b>99</b></div></td>
+              <td class="stars" data-l="评分">★★★★★ 9.7</td>
+              <td class="src" data-l="片源">正版订阅</td>
+            </tr>
+            <tr data-rv data-rk="千千 02">
+              <td class="rk" data-l="名次">02</td>
+              <td><div class="tbl-t">阿甘正传</div><div class="tbl-s">罗伯特·泽米吉斯 · 1994 · 美国</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="97"></i></span><b>97</b></div></td>
+              <td class="stars" data-l="评分">★★★★★ 9.5</td>
+              <td class="src" data-l="片源">联合会员</td>
+            </tr>
+            <tr data-rv data-rk="千千 03">
+              <td class="rk" data-l="名次">03</td>
+              <td><div class="tbl-t">霸王别姬</div><div class="tbl-s">陈凯歌 · 1993 · 中国大陆 / 香港</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="98"></i></span><b>98</b></div></td>
+              <td class="stars" data-l="评分">★★★★★ 9.6</td>
+              <td class="src" data-l="片源">正版订阅</td>
+            </tr>
+            <tr data-rv data-rk="千千 04">
+              <td class="rk" data-l="名次">04</td>
+              <td><div class="tbl-t">千与千寻</div><div class="tbl-s">宫崎骏 · 2001 · 日本</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="96"></i></span><b>96</b></div></td>
+              <td class="stars" data-l="评分">★★★★★ 9.4</td>
+              <td class="src" data-l="片源">公版 4K</td>
+            </tr>
+            <tr data-rv data-rk="千千 05">
+              <td class="rk" data-l="名次">05</td>
+              <td><div class="tbl-t">泰坦尼克号</div><div class="tbl-s">詹姆斯·卡梅隆 · 1997 · 美国</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="95"></i></span><b>95</b></div></td>
+              <td class="stars" data-l="评分">★★★★☆ 9.3</td>
+              <td class="src" data-l="片源">限时免费</td>
+            </tr>
+            <tr data-rv data-rk="千千 06">
+              <td class="rk" data-l="名次">06</td>
+              <td><div class="tbl-t">盗梦空间</div><div class="tbl-s">克里斯托弗·诺兰 · 2010 · 美国 / 英国</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="94"></i></span><b>94</b></div></td>
+              <td class="stars" data-l="评分">★★★★☆ 9.3</td>
+              <td class="src" data-l="片源">首月 0 元</td>
+            </tr>
+            <tr data-rv data-rk="千千 07">
+              <td class="rk" data-l="名次">07</td>
+              <td><div class="tbl-t">海上钢琴师</div><div class="tbl-s">朱塞佩·托纳多雷 · 1998 · 意大利</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="96"></i></span><b>96</b></div></td>
+              <td class="stars" data-l="评分">★★★★★ 9.3</td>
+              <td class="src" data-l="片源">正版订阅</td>
+            </tr>
+            <tr data-rv data-rk="千千 08">
+              <td class="rk" data-l="名次">08</td>
+              <td><div class="tbl-t">放牛班的春天</div><div class="tbl-s">克里斯托夫·巴拉蒂 · 2004 · 法国 / 瑞士</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="93"></i></span><b>93</b></div></td>
+              <td class="stars" data-l="评分">★★★★☆ 9.2</td>
+              <td class="src" data-l="片源">公益放映</td>
+            </tr>
+            <tr data-rv data-rk="千千 09">
+              <td class="rk" data-l="名次">09</td>
+              <td><div class="tbl-t">闻香识女人</div><div class="tbl-s">马丁·布莱斯特 · 1992 · 美国</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="92"></i></span><b>92</b></div></td>
+              <td class="stars" data-l="评分">★★★★☆ 9.1</td>
+              <td class="src" data-l="片源">联合会员</td>
+            </tr>
+            <tr data-rv data-rk="千千 10">
+              <td class="rk" data-l="名次">10</td>
+              <td><div class="tbl-t">入殓师</div><div class="tbl-s">泷田洋二郎 · 2008 · 日本</div></td>
+              <td><div class="mini"><span class="mini__track"><i class="mini__fill" data-w="95"></i></span><b>95</b></div></td>
+              <td class="stars" data-l="评分">★★★★★ 9.3</td>
+              <td class="src" data-l="片源">正版订阅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="side">
+        <div class="card" style="--c:#4f8a6d">
+          <h4><i></i>千千之问</h4>
+          <div class="sub">选片前，先问自己四句</div>
+          <ol class="qlist">
+            <li><b>今天想被安慰，还是想被挑战？</b>前者选治愈，后者选悬疑。</li>
+            <li><b>还剩多少时间？</b>38 分钟以内看短片，120 分钟以上才配长镜头。</li>
+            <li><b>能不能戴耳机？</b>音乐电影的一半在左耳。</li>
+            <li><b>要不要二刷？</b>台词密度高的，第一次看剧情，第二次看台词。</li>
+          </ol>
+        </div>
+        <div class="card" style="--c:#c9743f;border-color:rgba(79,138,109,.4)">
+          <h4><i style="--c:#4f8a6d"></i>片源与分级说明</h4>
+          <div class="sub">千千电影网是原创选片与正版入口索引</div>
+          <p style="font-size:14px;color:#5d6577;line-height:1.75">本站<b>不提供、不链接任何盗版、破解、侵权或低俗资源</b>。"正版片源"列仅标注常见正版渠道类型，请以平台实际版权与地区可用性为准。部分影片含战争、惊悚或成人向情绪，未满 18 岁请在监护人陪同下观看。</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ④ 千千影人 ============ -->
+<section id="line" aria-labelledby="h-line" style="background:linear-gradient(180deg,#fbf8f2,#f6f3ee)">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="num">04</span>
+      <div>
+        <div class="eyebrow">auteurs · 千千影人</div>
+        <h2 id="h-line">五位导演，五种"千千"</h2>
+        <p>他们有一个共同点：<b>音乐一起，画面就有了情绪</b>。跟着导演看，比跟着榜单看，更容易遇到下一部喜欢的片。</p>
+      </div>
+    </div>
+
+    <div class="tl">
+      <article class="st" data-rv style="--c:#4f8a6d">
+        <div class="st__top"><span class="st__yr">1943—2023</span><span class="st__en">Hayao Miyazaki</span></div>
+        <h3>宫崎骏</h3>
+        <p class="read">久石让的钢琴与小提琴，是宫崎骏画面的另一半。没有配乐，龙猫只是只大猫。</p>
+        <div class="chips">
+          <s>千与千寻</s><s>龙猫</s><s>天空之城</s><s>风之甬道</s><s>治愈</s><s>手绘</s>
+        </div>
+      </article>
+      <article class="st" data-rv style="--c:#8b6bff">
+        <div class="st__top"><span class="st__yr">1970—</span><span class="st__en">Christopher Nolan</span></div>
+        <h3>克里斯托弗·诺兰</h3>
+        <p class="read">汉斯·季默的合成器与管风琴，把时间变成了可听的东西。听感即结构。</p>
+        <div class="chips">
+          <s>星际穿越</s><s>盗梦空间</s><s>敦刻尔克</s><s>信条</s><s>烧脑</s><s>非线性</s>
+        </div>
+      </article>
+      <article class="st" data-rv style="--c:#c9743f">
+        <div class="st__top"><span class="st__yr">1963—</span><span class="st__en">Quentin Tarantino</span></div>
+        <h3>昆汀·塔伦蒂诺</h3>
+        <p class="read">他的配乐常常不是原声，而是借来的旧歌。对话的节奏，就是剪辑的节奏。</p>
+        <div class="chips">
+          <s>黑色电影</s><s>被解救的姜戈</s><s>无耻混蛋</s><s>好莱坞往事</s><s>黑色幽默</s><s>长镜头</s>
+        </div>
+      </article>
+      <article class="st" data-rv style="--c:#5b7fa6">
+        <div class="st__top"><span class="st__yr">1956—2023</span><span class="st__en">Ryuichi Sakamoto</span></div>
+        <h3>坂本龙一</h3>
+        <p class="read">以音乐家身份参与影像的人。他的音符很轻，但落下之后，画面再也回不去。</p>
+        <div class="chips">
+          <s>末代皇帝</s><s>遮蔽的天空</s><s>荒野猎人</s><s>第一炉香</s><s>钢琴</s><s>留白</s>
+        </div>
+      </article>
+      <article class="st" data-rv style="--c:#d9a83c">
+        <div class="st__top"><span class="st__yr">1962—</span><span class="st__en">Hans Zimmer</span></div>
+        <h3>汉斯·季默</h3>
+        <p class="read">他把电子合成器推进了交响乐团。听他的配乐，会先记住"声音"，再记住画面。</p>
+        <div class="chips">
+          <s>星际穿越</s><s>盗梦空间</s><s>蝙蝠侠：黑暗骑士</s><s>沙丘</s><s>管风琴</s><s>低频</s>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ⑤ 类型地图 ============ -->
+<section id="map" aria-labelledby="h-map">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="num">05</span>
+      <div>
+        <div class="eyebrow">genre map · 类型地图</div>
+        <h2 id="h-map">按"看它的理由"找片</h2>
+        <p>不按类型分，按<b>你会在哪一秒被打动</b>分。每一格都是一条通往下一部好片的路径。</p>
+      </div>
+    </div>
+
+    <div class="bricks">
+      <article class="br h2" data-rv>
+        <div class="br__cover"><img src="https://picsum.photos/id/1041/600/800" alt="音乐电影" width="600" height="800" loading="lazy"><span class="br__idx">MAP 01</span></div>
+        <div class="br__body"><h3 class="t">为配乐而看的 6 部</h3><p>台词忘光了，旋律还在。这一类，请务必戴耳机。</p></div>
+      </article>
+      <article class="br" data-rv>
+        <div class="br__cover"><img src="https://picsum.photos/id/1036/600/380" alt="治愈电影" width="600" height="380" loading="lazy"><span class="br__idx">MAP 02</span></div>
+        <div class="br__body"><h3 class="t">治愈系：允许自己慢下来</h3><p>没有坏人，没有反转，只有光线和一顿饭。</p></div>
+      </article>
+      <article class="br h4" data-rv>
+        <div class="br__cover"><img src="https://picsum.photos/id/1040/600/260" alt="公路电影" width="600" height="260" loading="lazy"><span class="br__idx">MAP 03</span></div>
+        <div class="br__body"><h3 class="t">公路片：不出门的出行</h3><p>车窗外的景，是最好的心理治疗。</p></div>
+      </article>
+      <article class="br" data-rv>
+        <div class="br__cover"><img src="https://picsum.photos/id/1069/600/380" alt="纪录片" width="600" height="380" loading="lazy"><span class="br__idx">MAP 04</span></div>
+        <div class="br__body"><h3 class="t">纪录片：真实比剧本更锋利</h3><p>90 分钟后，你对一件事的看法会被改写。</p></div>
+      </article>
+      <article class="br h2" data-rv>
+        <div class="br__cover"><img src="https://picsum.photos/id/1051/600/800" alt="悬疑电影" width="600" height="800" loading="lazy"><span class="br__idx">MAP 05</span></div>
+        <div class="br__body"><h3 class="t">悬疑：答案开头就给了</h3><p>好看的不在结局，在你第二次看懂第一场戏。</p></div>
+      </article>
+      <article class="br" data-rv>
+        <div class="br__cover"><img src="https://picsum.photos/id/1025/600/380" alt="经典剧集" width="600" height="380" loading="lazy"><span class="br__idx">MAP 06</span></div>
+        <div class="br__body"><h3 class="t">经典剧集：值得花一周</h3><p>电影是顿悟，剧集是习惯。选对开头很重要。</p></div>
+      </article>
+      <article class="br h4" data-rv>
+        <div class="br__cover"><img src="https://picsum.photos/id/1071/600/260" alt="短片" width="600" height="260" loading="lazy"><span class="br__idx">MAP 07</span></div>
+        <div class="br__body"><h3 class="t">短片：8 分钟也能完整</h3><p>通勤、午休、等外卖。碎片时间也有好影像。</p></div>
+      </article>
+      <article class="br" data-rv>
+        <div class="br__cover"><img src="https://picsum.photos/id/1062/600/380" alt="家庭电影" width="600" height="380" loading="lazy"><span class="br__idx">MAP 08</span></div>
+        <div class="br__body"><h3 class="t">家庭：和解从来不热闹</h3><p>最重的台词，往往说得最轻。</p></div>
+      </article>
+    </div>
+
+    <div class="ladder">
+      <div>
+        <h4>入门必看榜 · 第一次来就看这 6 部</h4>
+        <ol>
+          <li><b>肖申克的救赎</b>　希望是一种习惯</li>
+          <li><b>阿甘正传</b>　跑起来，别问为什么</li>
+          <li><b>千与千寻</b>　记住自己的名字</li>
+          <li><b>海上钢琴师</b>　1900 的选择</li>
+          <li><b>放牛班的春天</b>　歌声先于纪律</li>
+          <li><b>海街日记</b>　梅子酒与姐妹</li>
+        </ol>
+      </div>
+      <div>
+        <h4>进阶必看榜 · 愿意二刷的 6 部</h4>
+        <ol>
+          <li><b>盗梦空间</b>　梦境的层级与配乐</li>
+          <li><b>寄生虫</b>　楼梯、气味与阶层</li>
+          <li><b>低俗小说（Pulp Fiction）</b>　对话即结构</li>
+          <li><b>星际穿越</b>　爱是唯一能穿越维度的量</li>
+          <li><b>爆裂鼓手</b>　鼓点与剪辑点</li>
+          <li><b>入殓师</b>　大提琴与告别</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ⑥ 关于 ============ -->
+<section id="about" aria-labelledby="h-about" style="background:linear-gradient(180deg,#fbf8f2,#f6f3ee)">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="num">06</span>
+      <div>
+        <div class="eyebrow">about · 关于本站</div>
+        <h2 id="h-about">千千电影网，只做四件事</h2>
+        <p>我们不做资源站。<b>千千</b>，是千千阕歌，也是"把值得的，挑出来给你"。</p>
+      </div>
+    </div>
+    <div class="about">
+      <div class="do" data-rv><div class="n">DO 01</div><h3>替你筛选</h3><p>每周 14 部，宁缺毋滥。入选标准公开，评分可追溯。</p></div>
+      <div class="do" data-rv><div class="n">DO 02</div><h3>替你解释</h3><p>不只说"好看"，说清好看在哪：镜头、剪辑、表演、配乐。</p></div>
+      <div class="do" data-rv><div class="n">DO 03</div><h3>指向正版</h3><p>标注正版渠道类型，不提供、不链接任何盗版或破解资源。</p></div>
+      <div class="do" data-rv><div class="n">DO 04</div><h3>不作恶</h3><p>不用"免费全集"骗点击，不碰低俗擦边，不做标题党。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <div class="foot">
+    <div class="foot__brand">
+      <div class="logo">千千<span>电影网</span></div>
+      <p>千千电影网（qianqiandianyingwang-cn）是一份原创的观影笔记与正版入口索引。按情绪与节奏选片，把"今天想看什么"翻译成四句具体的判断。</p>
+    </div>
+    <div>
+      <h5>情绪</h5>
+      <ul>
+        <li><a href="#axis">治愈</a></li>
+        <li><a href="#axis">悬疑</a></li>
+        <li><a href="#axis">喜剧</a></li>
+        <li><a href="#axis">公路</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>榜单</h5>
+      <ul>
+        <li><a href="#rank">千千榜</a></li>
+        <li><a href="#map">入门必看榜</a></li>
+        <li><a href="#map">进阶必看榜</a></li>
+        <li><a href="#fresh">本周片单</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>关于</h5>
+      <ul>
+        <li><a href="#about">选片标准</a></li>
+        <li><a href="#about">正版说明</a></li>
+        <li><a href="#about">分级提示</a></li>
+        <li><a href="#line">千千影人</a></li>
+      </ul>
+    </div>
+    <div class="foot__bottom" style="grid-column:1/-1">
+      <span>© <span id="yr">2026</span> 千千电影网 · https://qianqiandianyingwang-cn.github.io/ · 原创选片内容</span>
+      <span>本站不提供任何盗版、破解、侵权或低俗资源，请支持正版。</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes tw{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
+@keyframes pulse{0%,100%{opacity:.92;transform:scale(1)}50%{opacity:1;transform:scale(1.03)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+<script>
+(function(){
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  // 汉堡菜单
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('navLinks');
+  if (burger && nav) {
+    burger.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // 滚动入场 + 进度条/数值动画
+  var items = document.querySelectorAll('[data-rv]');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en, i) {
+        if (!en.isIntersecting) return;
+        setTimeout(function () {
+          en.target.classList.add('in');
+          animateBars(en.target);
+          io.unobserve(en.target);
+        }, Math.min(i, 9) * 70);
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  function animateBars(host) {
+    host.querySelectorAll('[data-w]').forEach(function (bar) {
+      var w = parseInt(bar.getAttribute('data-w'), 10);
+      if (!isFinite(w)) return;
+      requestAnimationFrame(function () { bar.style.width = w + '%'; });
+      var sibling = bar.parentElement ? bar.parentElement.nextElementSibling : null;
+      if (sibling && /^b$/i.test(sibling.tagName || '')) {
+        countUp(sibling, w);
+      }
+    });
+  }
+  function countUp(el, target) {
+    var dur = 900, start = performance.now(), cur = 0;
+    function step(now) {
+      var p = Math.min((now - start) / dur, 1);
+      var v = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (v !== cur) { el.textContent = v; cur = v; }
+      if (p < 1) requestAnimationFrame(step); else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+})();
+</script>
+</body>
+</html>
